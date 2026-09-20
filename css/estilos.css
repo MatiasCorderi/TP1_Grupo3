@@ -1,23 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #8bfa7a;
+}
+
+/*------BARRA DE NAVEGACIÓN------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    border: 0.2rem inset rgb(255, 222, 222);
+    background-color: #920c1e;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0 #0a0101;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+}
+
+nav li {
+    padding: 1rem;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    border: 0.2rem solid rgb(41, 0, 0);
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+nav a:link {
+    transition: 200ms;
+    border: 0.2rem solid rgb(41, 0, 0);
+	background-color:  #a00000;
+	color: #ffffff;
+}
+
+nav a:visited {
+    transition: 200ms;
+    border: 0.2rem solid rgb(41, 0, 0);
+	background-color: #ff7272;
+	color: #000;
+}
+
+nav a:hover {
+    transition: 200ms;
+    border: 0.2rem solid rgb(0, 0, 0);
+	background-color: #ffffff;
+	color: #a00000;
+}
+
+nav a:active {
+    transition: 100ms;
+    border: 0.2rem solid rgb(255, 255, 255);
+	background-color: #000000;
+	color: #ffffff;
+}
+/*------BARRA DE NAVEGACIÓN------*/
+
 .encabezado {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 1.5rem 1rem;
-background-color: #8BFA7A;
-color: #FFFFFF;
-text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background-color: #8bfa7a;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 .contenedor {
-display: flex;
-maxwidth: 64rem;
-background-color: #8BFA7A;
-padding:1,5rem;
+    display: flex;
+    max-width: 64rem;
+    background-color: #8bfa7a;
+    padding: 1.5rem;
 }
 
 .menu {
-display: flex;
-justify-content: center;
-list-style: none;
-background-color: #8BFA7A;
-
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: #8bfa7a;
+}
