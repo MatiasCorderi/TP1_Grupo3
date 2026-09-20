@@ -2,13 +2,12 @@ body {
     font-family: Arial, sans-serif;
     font-size: 1rem;
     color: #FFFFFF;
+    line-height: 1.5;
     margin: 0;
-    padding: 0;
-    display: flex;
+    padding: 2rem 0;
     background-color: #8bfa7a;
 }
 
-/*------BARRA DE NAVEGACIÓN------*/
 * {
     padding: 0;
     margin: 0;
@@ -70,13 +69,17 @@ nav a:active {
 	background-color: #000000;
 	color: #ffffff;
 }
+
+/*------BARRA DE NAVEGACIÓN------*/
+
 /*------BARRA DE NAVEGACIÓN------*/
 
 .encabezado {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     padding: 1.5rem 1rem;
+    gap: 1.5rem;
     background-color: #8bfa7a;
     color: #FFFFFF;
     text-align: center;
@@ -84,6 +87,7 @@ nav a:active {
 
 .contenedor {
     display: flex;
+    flex-direction: column;
     max-width: 64rem;
     background-color: #8bfa7a;
     padding: 1.5rem;
@@ -94,4 +98,32 @@ nav a:active {
     justify-content: center;
     list-style: none;
     background-color: #8bfa7a;
+}
+
+.menu2 {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    background-color: #8bfa7a;
+}
+
+main {
+    padding: 2% 10%;
+    border: 0.5rem double rgb(97, 97, 97);
+    background-color: white;
+    margin: 2% 10%;
+    border-radius: 1rem;
+}
+
+footer {
+    padding: 1%;
+    border: 0.5rem groove rgb(177, 63, 91);
+    background-color: white;
+    margin: 2% 10%;
+    border-radius: 3rem;
+}
+
+.pie {
+    font-size: 1.3rem;
+    text-align: center;
 }
