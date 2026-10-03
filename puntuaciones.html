@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Puntuaciones</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abel&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Original+Surfer&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="contenedor">
         <header class="encabezado">
-            <h1>Tabla de Puntuaciones</h1>
-            <p>Conocé a los mejores jugadores de cada juego</p>
+
+            <img src="./img/logo_final_version_real_no_fake_link_e_mediafire.png" alt="Poke juegos logotipo"
+                width="350">
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Puntuaciones</a></li>
+                    <li><a href="desarrollo.html">Desarrollo</a></li>
+                </ul>
+            </nav>
         </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="puntuaciones.html">Puntuaciones</a></li>
-                <li><a href="desarrollo.html">Desarrollo</a></li>
-            </ul>
-        </nav>
+
         <main>
             <section class="tablas-puntos">
                 <h2>Juego de Dados</h2>
                 <table id="tabla-dados">
-                    <thead><tr><th>Jugadores (Puntos)</th><th>Ganador</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Jugadores (Puntos)</th>
+                            <th>Ganador</th>
+                        </tr>
+                    </thead>
                     <tbody></tbody>
                 </table>
 
                 <h2>Juego de Cartas</h2>
                 <table id="tabla-cartas">
-                    <thead><tr><th>Jugadores</th><th>Pares Acertados</th><th>Ganador</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Jugadores</th>
+                            <th>Pares Acertados</th>
+                            <th>Ganador</th>
+                        </tr>
+                    </thead>
                     <tbody></tbody>
                 </table>
 
                 <h2>Juego de Preguntas (Pokémon)</h2>
                 <table id="tabla-preguntas">
-                    <thead><tr><th>Jugador</th><th>Aciertos</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Jugador</th>
+                            <th>Aciertos</th>
+                        </tr>
+                    </thead>
                     <tbody></tbody>
                 </table>
             </section>
         </main>
-        <footer class="pie">
-            <address>Contacto: <a href="mailto:desarrolladoraanashei@gmail.com">desarrolladoraanashei@gmail.com</a></address>
+        <footer>
+            <address>Contacto: <a href="mailto:desarrolladoraanashei@gmail.com">desarrolladoraanashei@gmail.com</a>
+            </address>
         </footer>
     </div>
 </body>
+
 </html>

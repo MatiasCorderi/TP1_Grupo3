@@ -4,116 +4,76 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    font-size: 1rem;
-    color: #1a1a1a;
-    line-height: 1.5;
-    margin: 0;
-    padding: 2rem 0;
-    background-color: #8bfa7a;
+.contenedor {
+    width: 100%;
+    max-width: 950px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #fdfdfdc2;
 }
-/*------BARRA DE NAVEGACIÓN------*/
-nav {
-    border: 0.2rem inset rgb(0, 0, 0);
-    background-color: #004910;
-    margin: 0.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem 0 #0a0101;
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/fondo_pikachulo.jpg);
+
+/*---------------------GOOGLE FONTS------------------------------------------------------------------*/
+  font-family: "Original Surfer", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*------BARRA DE NAVEGACIÓN--------------------------------------------------------------------------*/
+
+header {
+    background-color: rgba(224, 25, 11, 0.938);
+}
+
+header img {
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem;
 }
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    padding: 0.5rem;
-}
-
-nav li {
-    padding: 1rem;
     margin: 0;
+    padding: 0;
+    background-color: rgba(190, 10, 10, 0.945);
 }
-
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+    padding-left: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 nav a {
+    display: block;
+    padding: 1rem;
+    color: white;
     text-decoration: none;
-    border: 0.2rem solid rgb(41, 0, 0);
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-}
-
-nav a:link {
-    transition: 200ms;
-    border: 0.2rem solid rgb(41, 0, 0);
-	background-color:  #a00000;
-	color: #ffffff;
-}
-
-nav a:visited {
-    transition: 200ms;
-    border: 0.2rem solid rgb(41, 0, 0);
-	background-color: #ff7272;
-	color: #000;
-}
-
-nav a:hover {
-    transition: 200ms;
-    border: 0.2rem solid rgb(0, 0, 0);
-	background-color: #ffffff;
-	color: #a00000;
-}
-
-nav a:active {
-    transition: 100ms;
-    border: 0.2rem solid rgb(255, 255, 255);
-	background-color: #000000;
-	color: #ffffff;
-}
-/*------BARRA DE NAVEGACIÓN------*/
-
-.encabezado {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
-    background-color: #8bfa7a;
-    color: #000000;
     text-align: center;
 }
-
-.contenedor {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 64rem;
-    background-color: #8bfa7a;
-    padding: 1.5rem;
+/*Estilos e interactividad del navegador*/
+nav a:hover {
+    background-color: rgba(160, 18, 18, 0.815);
 }
+nav a:active {
+    background-color: rgb(88, 9, 9);
+}
+/*---------------------------------------------------------------------------------------------------*/
 
 main {
-    padding: 2% 10%;
-    border: 0.5rem double rgb(97, 97, 97);
     background-color: white;
-    margin: 2% 10%;
+    margin: 2.5rem;
     border-radius: 1rem;
 }
 
 footer {
-    padding: 1%;
-    border: 0.5rem groove rgb(177, 63, 91);
-    background-color: white;
-    margin: 2% 10%;
-    border-radius: 3rem;
-}
-
-.pie {
-    font-size: 1.3rem;
-    text-align: center;
+    font-size: 20px;
+    background-color: rgba(224, 25, 11, 0.938);
+    padding: 3rem;
 }
 
 .juegos {
@@ -142,17 +102,16 @@ footer {
     border-radius: 1rem;
     background-color: #ffffff;
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/*explicar esto----------------------------------*/
 .tarjeta:hover {
-    transform: translateY(-4px);
     box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
 }
+/*-----------------------------------------------*/
 
 .tarjeta img {
     width: 100%;
-    height: 160px;
     object-fit: cover;
     border-radius: 0.5rem;
     margin-bottom: 0.8rem;
@@ -180,7 +139,6 @@ footer {
     font-weight: bold;
     border: 0.2rem solid rgb(41, 0, 0);
     border-radius: 0.5rem;
-    transition: 200ms;
 }
 
 .boton:hover {
@@ -194,3 +152,4 @@ footer {
     color: #ffffff;
     border-color: #ffffff;
 }
+
