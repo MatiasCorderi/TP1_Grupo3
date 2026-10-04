@@ -13,18 +13,23 @@ const imagenesCartas = [
     'img/squirtle.webp'
 ];
 
+// Variable que contiene el dorso de la carta
 const dorsoCarta = 'img/dorsoCartas.png';
 
 let mazoRutas = [];  // Guarda las 12 cartas mezcladas
-let primerIndiceSeleccionado = -1; //la primera carta que se cliquea
-let bloqueado = false;
+let primerIndiceSeleccionado = -1; // La primera carta que se cliquea
+let bloqueado = false; // Se habilita la selección de cartas
 
 /*-------------------------------------------------------------------------------*/
+/*NOTA: perdon por usar el getElementById chicos!!! Lo vi en talento tech y colgue de usar 
+querySelector porque era mas fácil. En la practica es básicamente lo mismo solo que llama al ID
+directamente por su nombre*/
 
-
+// Al hacer clic en el botón para iniciar el juego se toma el nombre escrito
 document.getElementById('btn-iniciar-cartas').addEventListener('click', function () {
     jugNombre = document.getElementById('jugador1-cartas').value || "Jugador";
 
+    // Las cartas no son visibles
     document.getElementById('setup-cartas').style.display = 'none';
     document.getElementById('tablero-cartas').style.display = 'block';
 
@@ -34,7 +39,7 @@ document.getElementById('btn-iniciar-cartas').addEventListener('click', function
 function iniciarTableroCartas() {
     mazoRutas = [];
 
-    // Duplicamos las imágenes usando un FOR clásico para formar los 6 pares (12 cartas)
+    // Se duplican las imágenes con un for para formar los 6 pares
     for (let i = 0; i < imagenesCartas.length; i++) {
         mazoRutas.push(imagenesCartas[i]);
         mazoRutas.push(imagenesCartas[i]);
@@ -43,9 +48,9 @@ function iniciarTableroCartas() {
     //REVISAR------------------------------------------------------------------------------
     for (let i = mazoRutas.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-        let temporal = mazoRutas[i];//Guarda temporalmente el valor de la carta que está en la posición i para no perderlo
-        mazoRutas[i] = mazoRutas[j];//Copia el valor de la carta j en la posición i
-        mazoRutas[j] = temporal;//Pone el valor guardado originalmente en i dentro de la posición j.
+        let temporal = mazoRutas[i]; // Guarda temporalmente el valor de la carta que está en la posición i para no perderlo
+        mazoRutas[i] = mazoRutas[j]; // Copia el valor de la carta j en la posición i
+        mazoRutas[j] = temporal; // Pone el valor guardado originalmente en i dentro de la posición j.
     }
 
     /* NOTA:
@@ -59,9 +64,9 @@ function iniciarTableroCartas() {
     let grilla = document.getElementById('grilla-cartas');
     grilla.innerHTML = '';
 
-    // Creamos las imágenes en el HTML usando un FOR en lugar de forEach
+    // Creamos las imágenes en el HTML usando un for
     for (let i = 0; i < mazoRutas.length; i++) {
-        let imgElem = document.createElement('img');
+        let imgElem = document.createElement('img'); // Crea la variable "imgElem" que contiene las imagenes de las cartas
         imgElem.src = dorsoCarta; // Empiezan boca abajo
         imgElem.id = "carta-" + i; // Le ponemos un ID numérico
 
@@ -128,6 +133,9 @@ function voltearCarta(indice) {
                 cartaActual.style.visibility = 'hidden';
 
                 paresEncontrados++;
+                primerIndiceSeleccionado = -1;
+                bloqueado = false;
+
                 actualizarInfoCartas();
 
                 // Si llega a 6 pares, gana
@@ -149,8 +157,13 @@ function voltearCarta(indice) {
                 bloqueado = false;
             }, 1000);
         }
-    }
+    } 
 }
+
+//estaría bueno poner un boton para reiniiciar la partida/listo jeje
+document.getElementById('btn-reiniciar-cartas').addEventListener('click', function () {
+    iniciarTableroCartas();
+});
 
 function actualizarInfoCartas() {
     document.getElementById('turno-cartas').textContent = "Jugador: " + jugNombre;
@@ -163,4 +176,4 @@ function finalizarJuegoCartas() {
     let puntuaciones = JSON.parse(localStorage.getItem('puntuaciones')) || { dados: [], cartas: [], preguntas: [] };
     puntuaciones.cartas.push({ jugador: jugNombre, intentos: intentosRealizados });
     localStorage.setItem('puntuaciones', JSON.stringify(puntuaciones));
-} // Se muestra que el jugador ganó la partida
+} // copien esto en todas las paginas y modifiquenlo para subirlo a puntuaciones

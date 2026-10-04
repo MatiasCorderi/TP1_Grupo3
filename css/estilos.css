@@ -13,8 +13,6 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     background-image: url(../img/fondo_pikachulo.jpg);
@@ -42,12 +40,14 @@ nav ul {
     padding: 0;
     background-color: rgba(190, 10, 10, 0.945);
 }
+
 nav li {
     display: inline-block;
     margin-right: 1rem;
     padding-left: 1rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
 nav a {
     display: block;
     padding: 1rem;
@@ -55,10 +55,12 @@ nav a {
     text-decoration: none;
     text-align: center;
 }
+
 /*Estilos e interactividad del navegador*/
 nav a:hover {
     background-color: rgba(160, 18, 18, 0.815);
 }
+
 nav a:active {
     background-color: rgb(88, 9, 9);
 }
@@ -76,6 +78,9 @@ footer {
     padding: 3rem;
 }
 
+article {
+    padding: 2rem;
+}
 .juegos {
     padding: 1rem 0;
     text-align: center;
@@ -129,10 +134,50 @@ footer {
     flex-grow: 1;
 }
 
+/* ESTILOS PARA LOS FORMULARIOS */
+#setup-cartas, #setup-dados, #tablero-dados {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    width: 260px; 
+    border: 0.3rem solid rgb(41, 0, 0);
+    border-radius: 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+}
+
+#jugador1-cartas, #cant-jugadores {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border: 0.2rem solid rgb(0, 19, 41);
+    border-radius: 0.5rem;
+
+}
+
+.celda-nombre {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    border: 0.2rem solid rgb(0, 19, 41);
+    border-radius: 0.5rem;
+}
+
 /* ---------- BOTÓN ---------- */
+
 .boton {
     display: inline-block;
+    text-align: center;
     padding: 0.5rem 1.2rem;
+    margin-top: 1rem;
     background-color: #a00000;
     color: #ffffff;
     text-decoration: none;
@@ -153,3 +198,162 @@ footer {
     border-color: #ffffff;
 }
 
+/* Contenedor de la grilla */
+#grilla-cartas {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+/* Las imágenes */
+#grilla-cartas img {
+    max-width: 15%;   
+    max-height: 15%;
+    margin: auto;
+}
+
+/* ESTILOS PARA EL JUEGO DE DADOS */
+
+.zona-dados {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 3rem;
+}
+
+.titulo {
+    text-align: center;
+    list-style: none;
+}
+
+/* ESTILOS PARA EL JUEGO DE PREGUNTAS (TRIVIA) */
+
+/* Contenedor principal de las pantallas del juego */
+.juego-setup, .juego-tablero {
+    background-color: #f8f9fa; /* Un gris muy clarito */
+    border: 2px solid #3b4cca; /* Azul clásico de Pokémon */
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto; /* Centrado en la pantalla */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Pantalla de inicio (Ingreso de nombre) */
+.formulario-ingreso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.formulario-ingreso input {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 300px;
+}
+
+/* Información de tiempo y aciertos */
+.info-juego {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffde00; /* Amarillo Pokémon */
+    color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.info-juego h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Contenedor de la imagen del Pokémon */
+.imagen-pokemon-container {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #fff;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2), 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.imagen-pokemon-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* La clase silueta que pinta al Pokémon de negro */
+.silueta {
+    filter: brightness(0);
+}
+
+/* Contenedor de los 4 botones de opciones */
+.opciones-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas del mismo tamaño */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
+
+
+/* RANKING ESTILOS */
+
+#rankings {
+    width: 100%;
+    max-width: 1200px;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1rem;
+    background-color: rgb(52, 0, 25);
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.7);
+    color: #f2f2f2;
+    flex-wrap: wrap;
+}
+
+#rankings h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+}
+
+#rankings article {
+    flex: 30%;
+    background-color: rgba(196, 1, 1, 0.7);
+    padding: 1em;
+    border-radius: 1rem;
+    flex-direction: column;
+    gap: 0.1em;
+    min-height: 250px;
+}
+
+#rankings article h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #fff;
+    border-bottom: 2px solid rgba(255, 253, 254, 0.6);
+}
+
+#rankings article p {
+    margin: 0.1em 0;
+    border-bottom: 1px solid rgba(211, 203, 206, 0.4);
+    font-size: 1rem;
+}
+
+ #tablero-preguntas {
+    display: none;
+}

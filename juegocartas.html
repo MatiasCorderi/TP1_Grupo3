@@ -28,29 +28,29 @@
         </header>
 
         <main>
-            <section>
                 <article>
-                    <h2>Memotest - Juego de Cartas</h2>
+                    <h1>Memotest - Juego de Cartas</h1>
                     <p>Encuentra los 6 pares de cartas en la menor cantidad de intentos posibles.</p>
 
                     <!-- La info del jugador y los intentos -->
                     <div id="setup-cartas">
                         <label for="jugador1-cartas">Nombre del Jugador:</label>
                         <input type="text" id="jugador1-cartas" placeholder="Ingresa tu nombre">
-                        <button id="btn-iniciar-cartas">Iniciar Juego</button>
+                        <button id="btn-iniciar-cartas" class="boton">Iniciar Juego</button>
                     </div>
 
                     <!-- Tablero de Cartas  -->
                     <div id="tablero-cartas" style="display: none;">
-                        <h3 id="turno-cartas"></h3>
+                        <h2 id="turno-cartas">Turno del jugador</h2>
                         <p id="puntajes-cartas"></p>
                         
                         <!-- aca se cargan las img de las cartas -->
                         <div id="grilla-cartas"></div>
                     </div>
+
+                    <button id="btn-reiniciar-cartas" class="boton">Reiniciar Partida</button>
                 </article>
 
-            </section>
         </main>
         <footer>
             <address>Contacto: <a href="mailto:desarrolladorapokejuegos@gmail.com">desarrolladorapokejuegos@gmail.com</a>
