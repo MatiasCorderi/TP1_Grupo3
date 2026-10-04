@@ -14,14 +14,13 @@
 
 <body>
     <div class="contenedor">
-        <header class="encabezado">
-
+        <header>
             <img src="./img/logo_final_version_real_no_fake_link_e_mediafire.png" alt="Poke juegos logotipo"
                 width="350">
 
             <nav>
                 <ul>
-                    <li><a href="index.html">⬅</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="puntuaciones.html">Puntuaciones</a></li>
                     <li><a href="desarrollo.html">Desarrollo</a></li>
                 </ul>
@@ -29,18 +28,35 @@
         </header>
 
         <main>
-            <section class="columna">
+            <section>
                 <article>
-                    <h2>Juegos Disponibles</h2>
-                    <p>Lista de juegos disponibles para jugar</p>
+                    <h2>Memotest - Juego de Cartas</h2>
+                    <p>Encuentra los 6 pares de cartas en la menor cantidad de intentos posibles.</p>
+
+                    <!-- La info del jugador y los intentos -->
+                    <div id="setup-cartas">
+                        <label for="jugador1-cartas">Nombre del Jugador:</label>
+                        <input type="text" id="jugador1-cartas" placeholder="Ingresa tu nombre">
+                        <button id="btn-iniciar-cartas">Iniciar Juego</button>
+                    </div>
+
+                    <!-- Tablero de Cartas  -->
+                    <div id="tablero-cartas" style="display: none;">
+                        <h3 id="turno-cartas"></h3>
+                        <p id="puntajes-cartas"></p>
+                        
+                        <!-- aca se cargan las img de las cartas -->
+                        <div id="grilla-cartas"></div>
+                    </div>
                 </article>
+
             </section>
         </main>
         <footer>
-            <address>Contacto: <a href="mailto:desarrolladoraanashei@gmail.com">desarrolladoraanashei@gmail.com</a>
+            <address>Contacto: <a href="mailto:desarrolladorapokejuegos@gmail.com">desarrolladorapokejuegos@gmail.com</a>
             </address>
         </footer>
     </div>
+    <script src="js/cartas.js"></script>
 </body>
-
 </html>
