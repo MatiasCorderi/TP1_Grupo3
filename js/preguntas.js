@@ -36,7 +36,7 @@ document.querySelector('#btn-iniciar-trivia').addEventListener('click', function
 });
 
 async function siguientePregunta() {
-
+    if (!juegoActivo) return; // Si el juego terminó, no pide más datos a la API
     respondido = false; // Se establece que el jugador no ha contestado ninguna opción
 
     try {
@@ -113,6 +113,7 @@ function verificarRespuestaTrivia(respuesta) {
 }
 
 function finalizarTrivia() {
+    clearInterval(intervalo); // Se detiene el intervalo antes de mostrar el alert
     alert("Conseguiste " + aciertos + " aciertos.");
 
     let puntuaciones;
@@ -137,10 +138,8 @@ function finalizarTrivia() {
 }
 
 function reiniciarTrivia() {
-    // Se frena el reloj
-    clearInterval(intervalo);
-    
     juegoActivo = false; // Corta los setTimeout pendientes
+    clearInterval(intervalo); // Se frena el reloj
 
     // Reset de los valores
     aciertos = 0;
