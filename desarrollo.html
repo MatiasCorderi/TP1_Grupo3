@@ -29,7 +29,7 @@
         </header>
 
         <main>
-            <article>
+            <section>
                 <h1>Integrantes del proyecto</h1>
                 <p>Desarrollado por:</p>
                 <ul>
@@ -37,7 +37,45 @@
                     <li>Azul Girard Kohakura</li>
                     <li>Matías Djibilian Corderí</li>
                 </ul>
-            </article>
+            </section>
+
+            <section>
+                <h2>Juegos</h2>
+                <ul>
+                    <li>Poke-test (memotest): encontrar los 6 pares de Pokémon dando vuelta 2 cartas por turno, en la menor cantidad de intentos posible.</li>
+                    <li>Poke-Dados: 2 a 4 jugadores por turnos; cada jugador tira 2 dados y los suma a su puntaje, pero si la suma da 7 no suma nada. Gana el primero en llegar a 100 puntos.</li>
+                    <li>- ¿Quién es ese Pokémon? (trivia): 60 segundos para adivinar, entre 4 opciones, el Pokémon que aparece en silueta. Cada acierto suma un punto.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Organización de archivos y carpetas</h2>
+                <p>Un HTML por página (index, juegocartas, juegodados, juegopreguntas, puntuaciones, desarrollo).</p>
+                <p>Carpeta con la hoja de estilos css.</p>
+                <p>Un archivo js por juego (cartas.js, dados.js, preguntas.js, puntuaciones.js) y una capeta con todas las imágenes.</p>
+            </section>
+            
+            <section>
+                <h2>Tecnologías utilizadas</h2>
+                <p>Un HTML por página (index, juegocartas, juegodados, juegopreguntas, puntuaciones, desarrollo); carpeta con la hoja de estilos css; un archivo js por juego (cartas.js, dados.js, preguntas.js, puntuaciones.js) y una capeta con todas las imágenes.</p>
+
+                <p>API: <a href="https://pokeapi.co/">PokeAPI</a></p>
+            </section>
+            
+            <section>
+                <h2>Descripción de las principales funcionalidades</h2>
+                <p>Navegación, elementos creados con JavaScript (cartas, botones y inputs), mezcla aleatoria con el algoritmo "Fisher–Yates"*, puntajes guardados en localStorage y temporizadores (setInterval/setTimeout).</p>
+            </section>
+
+            <section>
+                <h2>Desarrollo:</h2>
+                <p>El desarrollo de PokéJuegos arrancó con un proceso largo para decidir qué juegos íbamos a armar. Una vez que nos pusimos de acuerdo, lo primero que hicimos fue crear una base bastante básica y carente de estilos para ir probando. Elegimos como punto de partida la PokeAPI y, a partir de ahí, fuimos desarrollando cada uno de los minijuegos.</p>
+                <p>El primero en la lista fue el juego de cartas (memotest), que nos costó bastante trabajo. Nos quedamos muy trabados con la lógica de la interactividad, pero con la ayuda de la Inteligencia Artificial pudimos destrabarlo y llevarlo a cabo tal cual lo teníamos planeado desde el principio.</p>
+                <p>El segundo fue el juego de los dados. La idea principal era mantener esa misma dinámica pero sumando más reglas, jugando directamente contra un Pokémon y haciendo que los dados sean imágenes. Sin embargo, debido a complicaciones con la complejidad técnica y la falta de tiempo, terminamos descartando esa versión inicial y simplificándolo bastante.</p>
+                <p>Por otro lado, el juego basado en la API era el que más teníamos planificado, pero el que menos sabíamos cómo hacer en código. Para encararlo, nos apoyamos bastante en la IA para entender cómo funcionaba la API por dentro y resolver la dinámica del timer, además de aplicar los estilos para que las imágenes se vuelvan completamente negras y queden como siluetas.</p>
+                <p>Por último, tuvimos bastantes problemas con el sistema de puntuaciones al momento de inyectar los datos en el HTML. Con el fin de establecer un registro de récords, decidimos aplicar el método sort para organizar los puntos: de mayor a menor para el juego de preguntas y respuestas, y de menor a mayor para contabilizar los intentos en el memotest.</p>
+            </section>
+            
         </main>
         <footer>
             <address>Contacto: <a href="mailto:desarrolladoraanashei@gmail.com">desarrolladoraanashei@gmail.com</a>
