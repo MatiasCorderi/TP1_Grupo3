@@ -137,6 +137,9 @@ function finalizarTrivia() {
 }
 
 function reiniciarTrivia() {
+    // Se frena el reloj
+    clearInterval(intervalo);
+    
     juegoActivo = false; // Corta los setTimeout pendientes
 
     // Reset de los valores
