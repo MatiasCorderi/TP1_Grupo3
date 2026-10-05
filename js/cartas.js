@@ -166,8 +166,8 @@ document.getElementById('btn-reiniciar-cartas').addEventListener('click', functi
 });
 
 function actualizarInfoCartas() {
-    document.getElementById('turno-cartas').textContent = "Jugador: " + jugNombre;
-    document.getElementById('puntajes-cartas').textContent = "Pares: " + paresEncontrados + " / 6 | Intentos: " + intentosRealizados;
+    document.getElementById('turno-cartas').innerText = "Jugador: " + jugNombre;
+    document.getElementById('puntajes-cartas').innerText = "Pares: " + paresEncontrados + " / 6 | Intentos: " + intentosRealizados;
 } // Se muestran los valores del jugador durante la partida
 
 function finalizarJuegoCartas() {

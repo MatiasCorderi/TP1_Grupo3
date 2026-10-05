@@ -63,25 +63,25 @@ document.getElementById('btn-lanzar').addEventListener('click', function() {
     nunca saldrá 0, no sale ese dado. Como los valores dan entre 1 y 6, las caras que saldrán en cada tirada son
     las de las posiciones 1 a 6 en el array caras */
 
-    document.getElementById('dado1').textContent = caras[d1];
-    document.getElementById('dado2').textContent = caras[d2];
+    document.getElementById('dado1').innerText = caras[d1];
+    document.getElementById('dado2').innerText = caras[d2];
     
     let suma = d1 + d2; // Suma los dado que salieron en la tirada
     let msj = document.getElementById('mensaje-dados');
     
     // Reglas del juego
     if (suma === 7) { // Si la suma da ESTRICTAMENTE el número 7 no se suman puntos y termina el turno
-        msj.textContent = "¡Sacaste 7! No sumás puntos en esta ronda.";
+        msj.innerText = "¡Sacaste 7! No sumás puntos en esta ronda.";
     } else {
         jugadores[turnoActual].puntaje = jugadores[turnoActual].puntaje + suma;
-        msj.textContent = "¡Sumaste " + suma + " puntos!";
+        msj.innerText = "¡Sumaste " + suma + " puntos!";
         /* Si no salió 7, llama al nombre del jugador, su turno y puntaje, para posteriorme sumar los resultados
         del turno*/
     }
     
     // Se comprueba si el jugador actual ganó
     if (jugadores[turnoActual].puntaje >= 100) {
-        msj.textContent = "¡🏆 " + jugadores[turnoActual].nombre + " GANA EL JUEGO con " + jugadores[turnoActual].puntaje + " puntos!";
+        msj.innerText = "¡🏆 " + jugadores[turnoActual].nombre + " GANA EL JUEGO con " + jugadores[turnoActual].puntaje + " puntos!";
         /* Si el puntaje de alguno de los jugadores es 100 o mayor, llama al nombre del jugador y su puntaje para
         mostrar quien ganó */
 
@@ -105,7 +105,7 @@ document.getElementById('btn-lanzar').addEventListener('click', function() {
 });
 
 function actualizarInterfaz() {
-    document.getElementById('turno-actual').textContent = "Turno de: " + jugadores[turnoActual].nombre;
+    document.getElementById('turno-actual').innerText = "Turno de: " + jugadores[turnoActual].nombre;
     // Se muestra de quién es el turno
     
     let contenedorPuntajes = document.getElementById('puntuaciones-actuales');
@@ -113,7 +113,7 @@ function actualizarInterfaz() {
     // para mostrar los nuevos
     
     let titulo = document.createElement('h4');
-    titulo.textContent = "Puntajes:";
+    titulo.innerText = "Puntajes:";
     contenedorPuntajes.appendChild(titulo); // Se muestra el titulo puntajes como un h4
     
     let lista = document.createElement('ul'); // Se muestra la lista de jugadores y sus puntajes como un ul
@@ -121,7 +121,7 @@ function actualizarInterfaz() {
     // Se arma la lista de jugadores con un for
     for (let i = 0; i < jugadores.length; i++) {
         let itemLista = document.createElement('li'); // Se crean elementos de lista según la cantidad de jugadores
-        itemLista.textContent = jugadores[i].nombre + ": " + jugadores[i].puntaje + " pts"; // Se agrega el nombre
+        itemLista.innerText = jugadores[i].nombre + ": " + jugadores[i].puntaje + " pts"; // Se agrega el nombre
         // y puntaje de cada jugador en las listas
 
         lista.appendChild(itemLista); // Se introducen los elementos de itemLista a lista

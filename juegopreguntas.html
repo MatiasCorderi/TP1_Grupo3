@@ -3,25 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Juegos</title>
+    <title>Juego de Preguntas - Poke Juegos</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Abel&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Original+Surfer&display=swap"
         rel="stylesheet">
+
 </head>
 
 <body>
     <div class="contenedor">
-        <header class="encabezado">
-
+        <header>
             <img src="./img/logo_final_version_real_no_fake_link_e_mediafire.png" alt="Poke juegos logotipo"
                 width="350">
-
             <nav>
                 <ul>
-                    <li><a href="index.html">⬅</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="puntuaciones.html">Puntuaciones</a></li>
                     <li><a href="desarrollo.html">Desarrollo</a></li>
                 </ul>
@@ -29,18 +28,48 @@
         </header>
 
         <main>
-            <section class="columna">
-                <article>
-                    <h2>Juegos Disponibles</h2>
-                    <p>Lista de juegos disponibles para jugar</p>
-                </article>
+            <!-- PANTALLA 1: SETUP (Ingreso de nombre) -->
+            <section id="setup-preguntas" class="juego-setup">
+                <h1>¿Quién es ese Pokémon?</h1>
+                <p>Adivina la mayor cantidad de Pokémon en 60 segundos.</p>
+                <div class="formulario-ingreso">
+                    <label for="nombre-jugador-trivia">Tu Nombre:</label>
+                    <input type="text" id="nombre-jugador-trivia" placeholder="Ej: Ash Ketchum">
+                    <button id="btn-iniciar-trivia" class="boton">Comenzar Trivia</button>
+                </div>
+            </section>
+
+            <!--TABLERO DE JUEGO (Oculto al inicio) -->
+            <section id="tablero-preguntas" class="juego-tablero">
+                
+                <div class="info-juego">
+                    <h2>⏳ Tiempo: <span id="tiempo-trivia">60</span>s</h2>
+                    <h2>✅ Aciertos: <span id="aciertos-trivia">0</span></h2>
+                </div>
+
+                <!-- Ccntenedor principal de la pregunta (aca van las img) -->
+                <div id="pregunta-container">
+                    <div class="imagen-pokemon-container">
+                        <!--Aca tira un error en el validador porque no tiene el src completo, como las imagenes vienen de la api y no sabria bien que poner lo dejo asi-->
+                        <img id="img-pokemon" src="" alt="Pokémon Misterioso" width="200">
+                    </div>
+                    
+                    <h3>¿Quién es este Pokémon?</h3>
+                    
+                    <!--los 4 botones-->
+                    <div id="opciones-trivia" class="opciones-contenedor">
+                        <!-- Los botones se crean desde js we-->
+                    </div>
+                </div>
+
             </section>
         </main>
+
         <footer>
-            <address>Contacto: <a href="mailto:desarrolladoraanashei@gmail.com">desarrolladoraanashei@gmail.com</a>
+            <address>Contacto: <a href="mailto:desarrolladorapokejuegos@gmail.com">desarrolladorapokejuegos@gmail.com</a>
             </address>
         </footer>
     </div>
+    <script src="js/preguntas.js"></script>
 </body>
-
 </html>
