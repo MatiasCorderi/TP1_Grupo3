@@ -46,7 +46,8 @@ async function siguientePregunta() {
         let data = await res.json(); // Se convierten las respuestas correctas en un .json
         pokemonActual = data.name;
 
-        document.querySelector('#img-pokemon').src = data.sprites.front_default; // Se cargan los sprites
+        document.querySelector('#img-pokemon').src = data.sprites.front_default; /* Se cargan los sprites de pokémon Blanco y Negro porque
+        las direcciones de los sprites de la API están enlazados a un github y los primeros sprites (1 a 151) corresponden a esa generacion*/
         document.querySelector('#img-pokemon').classList.add('silueta'); // Se ponen en negro
 
         // Se buscan 3 opciones incorrectas
