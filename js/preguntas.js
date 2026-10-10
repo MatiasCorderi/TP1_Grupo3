@@ -2,20 +2,13 @@ let aciertos = 0;
 let tiempo = 60;
 let intervalo;
 let pokemonActual = null;
-let nombreJugador = "";
+let jugNombre = "Jugador";
 let respondido = false;
 let juegoActivo = false;
 
 // Si se hace clic en el botón para empezar la partida se guarda el nombre escrito por el jugador
 document.querySelector('#btn-iniciar-trivia').addEventListener('click', function () {
-    let inputNombre = document.querySelector('#nombre-jugador-trivia').value;
-
-    // Si dejaron el nombre vacío, se usa uno por defecto
-    if (inputNombre === "") {
-        nombreJugador = "Jugador";
-    } else {
-        nombreJugador = inputNombre; // Sino se usa el nombre ingresado por el jug :V
-    }
+    jugNombre = document.querySelector('#nombre-jugador-trivia').value || jugNombre;
 
     // Se oculta el menú para ingresar nombre y se deja ver la trivia
     document.querySelector('#setup-preguntas').style.display = 'none';
@@ -36,7 +29,7 @@ document.querySelector('#btn-iniciar-trivia').addEventListener('click', function
 });
 
 async function siguientePregunta() {
-
+    if (!juegoActivo) return; // Si el juego terminó, no pide más datos a la API
     respondido = false; // Se establece que el jugador no ha contestado ninguna opción
 
     try {
@@ -46,7 +39,8 @@ async function siguientePregunta() {
         let data = await res.json(); // Se convierten las respuestas correctas en un .json
         pokemonActual = data.name;
 
-        document.querySelector('#img-pokemon').src = data.sprites.front_default; // Se cargan los sprites
+        document.querySelector('#img-pokemon').src = data.sprites.front_default; /* Se cargan los sprites de pokémon Blanco y Negro porque
+        las direcciones de los sprites de la API están enlazados a un github y los primeros sprites (1 a 151) corresponden a esa generacion*/
         document.querySelector('#img-pokemon').classList.add('silueta'); // Se ponen en negro
 
         // Se buscan 3 opciones incorrectas
@@ -86,7 +80,7 @@ async function siguientePregunta() {
         }
 
     } catch (error) {
-        document.querySelector('#cargando-pokemon').innerHTML = 'No se pudo cargar la pregunta. Reintentando...:V';
+        document.querySelector('#cargando-pokemon').innerText = 'No se pudo cargar la pregunta. Reintentando...:V';
         setTimeout(siguientePregunta, 1000);
     }
 }
@@ -112,6 +106,7 @@ function verificarRespuestaTrivia(respuesta) {
 }
 
 function finalizarTrivia() {
+    clearInterval(intervalo); // Se detiene el intervalo antes de mostrar el alert
     alert("Conseguiste " + aciertos + " aciertos.");
 
     let puntuaciones;
@@ -129,7 +124,7 @@ function finalizarTrivia() {
         puntuaciones = { dados: [], cartas: [], preguntas: [] };
     }
 
-    puntuaciones.preguntas.push({ nombre: nombreJugador, aciertos: aciertos });
+    puntuaciones.preguntas.push({ nombre: jugNombre, aciertos: aciertos });
     localStorage.setItem('puntuaciones', JSON.stringify(puntuaciones));
 
     reiniciarTrivia();
@@ -137,6 +132,7 @@ function finalizarTrivia() {
 
 function reiniciarTrivia() {
     juegoActivo = false; // Corta los setTimeout pendientes
+    clearInterval(intervalo); // Se frena el reloj
 
     // Reset de los valores
     aciertos = 0;

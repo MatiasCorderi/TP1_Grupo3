@@ -14,24 +14,20 @@ const imagenesCartas = [
 ];
 
 // Variable que contiene el dorso de la carta
-const dorsoCarta = 'img/dorsoCartas.png';
+const dorsoCarta = 'img/dorsocartas.png';
 
 let mazoRutas = [];  // Guarda las 12 cartas mezcladas
 let primerIndiceSeleccionado = -1; // La primera carta que se cliquea
 let bloqueado = false; // Se habilita la selección de cartas
 
-/*-------------------------------------------------------------------------------*/
-/*NOTA: perdon por usar el getElementById chicos!!! Lo vi en talento tech y colgue de usar 
-querySelector porque era mas fácil. En la practica es básicamente lo mismo solo que llama al ID
-directamente por su nombre*/
 
 // Al hacer clic en el botón para iniciar el juego se toma el nombre escrito
-document.getElementById('btn-iniciar-cartas').addEventListener('click', function () {
-    jugNombre = document.getElementById('jugador1-cartas').value || "Jugador";
+document.querySelector('#btn-iniciar-cartas').addEventListener('click', function () {
+    jugNombre = document.querySelector('#jugador1-cartas').value || jugNombre;
 
     // Las cartas no son visibles
-    document.getElementById('setup-cartas').style.display = 'none';
-    document.getElementById('tablero-cartas').style.display = 'block';
+    document.querySelector('#setup-cartas').style.display = 'none';
+    document.querySelector('#tablero-cartas').style.display = 'block';
 
     iniciarTableroCartas();
 });
@@ -48,20 +44,13 @@ function iniciarTableroCartas() {
     //REVISAR------------------------------------------------------------------------------
     for (let i = mazoRutas.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-        let temporal = mazoRutas[i]; // Guarda temporalmente el valor de la carta que está en la posición i para no perderlo
-        mazoRutas[i] = mazoRutas[j]; // Copia el valor de la carta j en la posición i
-        mazoRutas[j] = temporal; // Pone el valor guardado originalmente en i dentro de la posición j.
+            let temporal = mazoRutas[i]; // Guarda temporalmente el valor de la carta que está en la posición i para no perderlo
+            mazoRutas[i] = mazoRutas[j]; // Copia el valor de la carta j en la posición i
+            mazoRutas[j] = temporal; // Pone el valor guardado originalmente en i dentro de la posición j.
     }
 
-    /* NOTA:
-     Esto me estaba costando y lo consulte directamente a la IA, tiro de usar el método "Fisher-Yates" por si lo quieren buscar.
-     Para resumirlo básicamente toma la última carta de la lista, elige otra carta al azar entre las 
-     restantes y las cambia de lugar (usando la variable 'temporal' para no perder datos). 
-     Despues repite el mismo paso con la penúltima carta, y así hacia atrás hasta llegar al inicio del mazo.
-    */
-
     // Se inyecta la grilla que contiene las cartas al HTML
-    let grilla = document.getElementById('grilla-cartas');
+    let grilla = document.querySelector('#grilla-cartas');
     grilla.innerHTML = '';
 
     // Creamos las imágenes en el HTML usando un for
@@ -93,7 +82,7 @@ function voltearCarta(indice) {
         return;
     }
 
-    let cartaActual = document.getElementById("carta-" + indice);
+    let cartaActual = document.querySelector("#carta-" + indice);
 
     // Si la carta ya está oculta o ya está dada vuelta, no hace nada :""""V
     if (cartaActual.style.visibility === 'hidden' || primerIndiceSeleccionado === indice) {
@@ -161,13 +150,13 @@ function voltearCarta(indice) {
 }
 
 //estaría bueno poner un boton para reiniiciar la partida/listo jeje
-document.getElementById('btn-reiniciar-cartas').addEventListener('click', function () {
+document.querySelector('#btn-reiniciar-cartas').addEventListener('click', function () {
     iniciarTableroCartas();
 });
 
 function actualizarInfoCartas() {
-    document.getElementById('turno-cartas').innerText = "Jugador: " + jugNombre;
-    document.getElementById('puntajes-cartas').innerText = "Pares: " + paresEncontrados + " / 6 | Intentos: " + intentosRealizados;
+    document.querySelector('#turno-cartas').innerText = "Jugador: " + jugNombre;
+    document.querySelector('#puntajes-cartas').innerText = "Pares: " + paresEncontrados + " / 6 | Intentos: " + intentosRealizados;
 } // Se muestran los valores del jugador durante la partida
 
 function finalizarJuegoCartas() {

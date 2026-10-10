@@ -15,7 +15,7 @@
 <body>
     <div class="contenedor">
         <header>
-            <img src="./img/logo_final_version_real_no_fake_link_e_mediafire.png" alt="Poke juegos logotipo"
+            <img src="./img/logo.png" alt="Poke juegos logotipo"
                 width="350">
 
             <nav>
@@ -28,28 +28,50 @@
         </header>
 
         <main>
-                <article>
-                    <h1>Memotest - Juego de Cartas</h1>
-                    <p>Encuentra los 6 pares de cartas en la menor cantidad de intentos posibles.</p>
+            <article>
+                <h1>Memotest - Juego de Cartas</h1>
+                <p>Encuentra los 6 pares de cartas en la menor cantidad de intentos posibles.</p>
 
-                    <!-- La info del jugador y los intentos -->
-                    <div id="setup-cartas">
-                        <label for="jugador1-cartas">Nombre del Jugador:</label>
-                        <input type="text" id="jugador1-cartas" placeholder="Ingresa tu nombre">
-                        <button id="btn-iniciar-cartas" class="boton">Iniciar Juego</button>
-                    </div>
+                <!-- La info del jugador y los intentos -->
+                <div id="setup-cartas">
+                    <label for="jugador1-cartas">Nombre del Jugador:</label>
+                    <input type="text" id="jugador1-cartas" placeholder="Ingresa tu nombre">
+                    <button id="btn-iniciar-cartas" class="boton">Iniciar Juego</button>
+                </div>
 
-                    <!-- Tablero de Cartas  -->
-                    <div id="tablero-cartas" style="display: none;">
-                        <h2 id="turno-cartas">Turno del jugador</h2>
-                        <p id="puntajes-cartas"></p>
+                <!-- Tablero de Cartas  -->
+                <div id="tablero-cartas" style="display: none;">
+                    <h2 id="turno-cartas">Turno del jugador</h2>
+                    <p id="puntajes-cartas"></p>
                         
-                        <!-- aca se cargan las img de las cartas -->
-                        <div id="grilla-cartas"></div>
-                    </div>
+                    <!-- aca se cargan las img de las cartas -->
+                    <div id="grilla-cartas"></div>
+                </div>
 
-                    <button id="btn-reiniciar-cartas" class="boton">Reiniciar Partida</button>
-                </article>
+                <button id="btn-reiniciar-cartas" class="boton">Reiniciar Partida</button>
+            </article>
+
+            <section class="juegos">
+                <h1>Tal vez también quieras probar:</h1>
+
+                <div class="tarjetas">
+
+                    <article class="tarjeta">
+                        <img src="img/dadomon.jpg" alt="Juego de dados">
+                        <h2>Poke-Dados</h2>
+                        <p>Multijugador<br>Llegá a los 100 puntos antes que los demás.</p>
+                        <a href="juegodados.html" class="boton">Jugar</a>
+                    </article>
+
+                    <article class="tarjeta">
+                        <img src="img/preguntasmon.jpg" alt="Juego de preguntas">
+                        <h2>¿Quién es ese Pokemon?</h2>
+                        <p>Respondé la mayor cantidad de preguntas correctas antes de que se acabe el tiempo.</p>
+                        <a href="juegopreguntas.html" class="boton">Jugar</a>
+                    </article>
+
+                </div>
+            </section>
 
         </main>
         <footer>

@@ -74,8 +74,34 @@ main {
 
 footer {
     font-size: 20px;
+    color: #f2f2f2;
     background-color: rgba(224, 25, 11, 0.938);
     padding: 3rem;
+}
+
+address {
+    border: 2rem;
+    border-radius: 1rem;
+    color: #f2f2f2;
+    background-color: rgba(224, 25, 11, 0.938);
+    padding: 1rem;
+    text-align: center;
+}
+
+address a {
+    color: #fffd74;
+}
+
+address a:hover {
+    color: #c9c500;
+}
+
+address a:active {
+    color: #2b2a21;
+}
+
+section{
+    padding: 2rem;
 }
 
 article {
@@ -109,12 +135,11 @@ article {
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
 }
 
-/*explicar esto----------------------------------*/
 .tarjeta:hover {
     box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.5);
 }
-/*-----------------------------------------------*/
 
+/*-----------------------------------------------*/
 .tarjeta img {
     width: 100%;
     object-fit: cover;
@@ -218,7 +243,7 @@ article {
     display: flex;
     justify-content: center;
     margin: auto;
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 .titulo {
@@ -240,7 +265,7 @@ article {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Pantalla de inicio (Ingreso de nombre) */
+/* Pantalla de inicio */
 .formulario-ingreso {
     display: flex;
     flex-direction: column;

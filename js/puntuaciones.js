@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let juegoCartas = articulos[0];
 
     puntuaciones.cartas.sort(function(a, b) { // El sort tambien lo recomendó, ordena los elementos y te los devuelve en un array :D
-        return b.intentos - a.intentos; // Se ordena por cantidad de intentos de mayor a menor
+        return a.intentos - b.intentos; // Se ordena por cantidad de intentos de mayor a menor
         });
 
     for (let i = 0; i < puntuaciones.cartas.length; i++) {

@@ -2,36 +2,36 @@ let jugadores = [];
 let turnoActual = 0;
 
 // Mostrar los inputs correspondientes cuando tocan "Siguiente" 
-document.getElementById('btn-generar-inputs').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cant-jugadores').value);
-    let container = document.getElementById('inputs-nombres');
+document.querySelector('#btn-generar-inputs').addEventListener('click', function() {
+    let cantidad = parseInt(document.querySelector('#cant-jugadores').value);
+    let container = document.querySelector('#inputs-nombres');
     
     // Mostramos el contenedor general
     container.style.display = 'block';
     
     // Primero ocultamos los 4 inputs (por si el usuario se arrepiente y cambia de 4 a 2)
     for (let i = 0; i < 4; i++) {
-        document.getElementById("nombre-dado-" + i).style.display = 'none';
+        document.querySelector("#nombre-dado-" + i).style.display = 'none';
     }
     
     // Se muestra solo la cantidad que eligió el usuario
     for (let i = 0; i < cantidad; i++) {
-        document.getElementById("nombre-dado-" + i).style.display = 'inline-block';
+        document.querySelector("#nombre-dado-" + i).style.display = 'inline-block';
     }
 });
 
 // Se inicia el juego usando los inputs que ya están en el HTML
-document.getElementById('btn-iniciar-dados').addEventListener('click', function() {
-    let cantidad = parseInt(document.getElementById('cant-jugadores').value);
+document.querySelector('#btn-iniciar-dados').addEventListener('click', function() {
+    let cantidad = parseInt(document.querySelector('#cant-jugadores').value);
     jugadores = [];
     
     for (let i = 0; i < cantidad; i++) { // Se buscan lo id de los nombres desde el número 0
-        let inputNombre = document.getElementById("nombre-dado-" + i);
+        let inputNombre = document.querySelector("#nombre-dado-" + i);
         let nom = inputNombre.value;
         
         if (nom === "") {
             nom = "Jugador " + (i + 1); // Si el campo está vacío registra el Jugador 1, 2, 3, 4 por default
-                                           // empezando desde 0
+                                        // empezando desde 0
         }
         
         // Cada jugador empieza con 0 puntos
@@ -43,13 +43,13 @@ document.getElementById('btn-iniciar-dados').addEventListener('click', function(
 
 function iniciarJuegoDados() {
     // Se deja de mostrar la configuración de la partida y se muestra el tablero
-    document.getElementById('setup-dados').style.display = 'none';
-    document.getElementById('tablero-dados').style.display = 'block';
+    document.querySelector('#setup-dados').style.display = 'none';
+    document.querySelector('#tablero-dados').style.display = 'block';
     
     actualizarInterfaz(); // Muestra los nombres, puntaje y turno antes del primer clic
 }
 
-document.getElementById('btn-lanzar').addEventListener('click', function() {
+document.querySelector('#btn-lanzar').addEventListener('click', function() {
     
     /* Al hacer clic en el boton te da por dado un numero del 0 al 1 (Mathrandom), lo multiplica por la cara de los
     dados (6) y lo suma en +1. Si por ej da 6.7 mathfloor lo redondea para abajo (6). Como no nos puede dar
@@ -63,11 +63,11 @@ document.getElementById('btn-lanzar').addEventListener('click', function() {
     nunca saldrá 0, no sale ese dado. Como los valores dan entre 1 y 6, las caras que saldrán en cada tirada son
     las de las posiciones 1 a 6 en el array caras */
 
-    document.getElementById('dado1').innerText = caras[d1];
-    document.getElementById('dado2').innerText = caras[d2];
+    document.querySelector('#dado1').innerText = caras[d1];
+    document.querySelector('#dado2').innerText = caras[d2];
     
     let suma = d1 + d2; // Suma los dado que salieron en la tirada
-    let msj = document.getElementById('mensaje-dados');
+    let msj = document.querySelector('#mensaje-dados');
     
     // Reglas del juego
     if (suma === 7) { // Si la suma da ESTRICTAMENTE el número 7 no se suman puntos y termina el turno
@@ -89,7 +89,7 @@ document.getElementById('btn-lanzar').addEventListener('click', function() {
         actualizarInterfaz(); // Se actualizan los datos de la partida
 
         // Se bloquea el botón para que no se pueda seguir tirando los dados
-        document.getElementById('btn-lanzar').disabled = true;
+        document.querySelector('#btn-lanzar').disabled = true;
     } else {
         // Si nadie ganó se suma el turno actual para pasar al siguiente jugador
         turnoActual++;
@@ -105,10 +105,10 @@ document.getElementById('btn-lanzar').addEventListener('click', function() {
 });
 
 function actualizarInterfaz() {
-    document.getElementById('turno-actual').innerText = "Turno de: " + jugadores[turnoActual].nombre;
+    document.querySelector('#turno-actual').innerText = "Turno de: " + jugadores[turnoActual].nombre;
     // Se muestra de quién es el turno
     
-    let contenedorPuntajes = document.getElementById('puntuaciones-actuales');
+    let contenedorPuntajes = document.querySelector('#puntuaciones-actuales');
     contenedorPuntajes.innerHTML = ''; // Tras cada clic se borran los puntos de la ronda anterior
     // para mostrar los nuevos
     
