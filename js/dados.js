@@ -4,6 +4,12 @@ let turnoActual = 0;
 // Mostrar los inputs correspondientes cuando tocan "Siguiente" 
 document.querySelector('#btn-generar-inputs').addEventListener('click', function() {
     let cantidad = parseInt(document.querySelector('#cant-jugadores').value);
+    // Se valida que la cantidad de jugadores sea entre 2 y 4
+    if (cantidad < 2 || cantidad > 4) {
+    alert("Por favor, ingresa un número de jugadores entre 2 y 4.");
+    return;
+    }
+    
     let container = document.querySelector('#inputs-nombres');
     
     // Mostramos el contenedor general
