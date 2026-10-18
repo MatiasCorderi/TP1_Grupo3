@@ -60,6 +60,7 @@ async function siguientePregunta() {
             opciones[j] = temporal;
         }
 
+        document.querySelector('#cargando-pokemon').innerText = '¿Quién es ese Pokémon?';
         let contOpciones = document.querySelector('#opciones-trivia');
         contOpciones.innerHTML = ''; // Elige donde apareceran los botones en el HTML
         // y le agrega las opciones
@@ -109,20 +110,7 @@ function finalizarTrivia() {
     clearInterval(intervalo); // Se detiene el intervalo antes de mostrar el alert
     alert("Conseguiste " + aciertos + " aciertos.");
 
-    let puntuaciones;
-    
-    try {
-        puntuaciones = JSON.parse(localStorage.getItem('puntuaciones'));
-        // Busca en la memoria del navegador los textos guardados en "puntuaciones"
-        // para guardarlos en un JSON para que puedan mostrarse
-    } catch (error) {
-        puntuaciones = null; // Si el catch agarra un error, puntuaciones se vuelve null y se crea la estructura desde cero
-    }
-
-    // Si no hay nada guardado todavía se resetea la tabla de puntos
-    if (puntuaciones === null) {
-        puntuaciones = { dados: [], cartas: [], preguntas: [] };
-    }
+    let puntuaciones = JSON.parse(localStorage.getItem('puntuaciones')) || { dados: [], cartas: [], preguntas: [] };
 
     puntuaciones.preguntas.push({ nombre: jugNombre, aciertos: aciertos });
     localStorage.setItem('puntuaciones', JSON.stringify(puntuaciones));

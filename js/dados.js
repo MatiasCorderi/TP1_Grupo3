@@ -4,6 +4,13 @@ let turnoActual = 0;
 // Mostrar los inputs correspondientes cuando tocan "Siguiente" 
 document.querySelector('#btn-generar-inputs').addEventListener('click', function() {
     let cantidad = parseInt(document.querySelector('#cant-jugadores').value);
+    
+    // Se valida que la cantidad de jugadores sea entre 2 y 4
+    if (cantidad < 2 || cantidad > 4) {
+    alert("Por favor, ingresa un número de jugadores entre 2 y 4.");
+    return;
+    }
+    
     let container = document.querySelector('#inputs-nombres');
     
     // Mostramos el contenedor general
@@ -59,6 +66,7 @@ document.querySelector('#btn-lanzar').addEventListener('click', function() {
     let d1 = Math.floor(Math.random() * 6) + 1;
     let d2 = Math.floor(Math.random() * 6) + 1;
     let caras = ['🎲', '⚀','⚁','⚂','⚃','⚄','⚅'];
+    
     /* Posiciones de dados: el dado a color que es la posición 0 sirve como un valor de relleno. Como en d1 y d2
     nunca saldrá 0, no sale ese dado. Como los valores dan entre 1 y 6, las caras que saldrán en cada tirada son
     las de las posiciones 1 a 6 en el array caras */
@@ -131,25 +139,9 @@ function actualizarInterfaz() {
 }
 
 function guardarPuntuacion(juego, todosJugadores, ganador) {
+
     let puntuaciones = JSON.parse(localStorage.getItem('puntuaciones'));
-    /* Va a la memoria del navegador y busca lo que esté guardado bajo la clave 'puntuaciones'. Se traduce ese
-    texto guardado a un objeto de JavaScript real.*/ 
-    
-    // Si no hay nada guardado todavía, se crea la estructura desde cero.
-
-    // Si es la primera vez que se juega en esa computadora, el navegador no va a encontrar nada (null).
-    // Si da null, el if crea la estructura desde cero: un objeto con tres listas vacías
-
-    if (puntuaciones === null) {
-        puntuaciones = { dados: [], cartas: [], preguntas: [] };
-    }
     
     puntuaciones.dados.push({ jugadores: todosJugadores, ganador: ganador.nombre });
-    // Se va a la lista de partidas de dados (puntuaciones.dados) y le agrega (.push()) un nuevo objeto con dos
-    // datos: la lista de todos los participantes y el nombre de quien ganó.
-
-
     localStorage.setItem('puntuaciones', JSON.stringify(puntuaciones));
-    // Se toma el objeto de JavaScript con la nueva partida agregada y lo guarda en formato de texto.
-    // Luego se sobrescribe y guarda ese texto actualizado en el navegador.
 }

@@ -98,7 +98,7 @@ function voltearCarta(indice) {
     }
 
     /* Si ya tocaste la primera carta, se identifica la segunda que se gira y como primera acción se
-    aumentan los intentos realizados*/
+    aumentan los intentos realizados */
 
     else {
         intentosRealizados++;
